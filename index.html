@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash - Instagram Bio</title>
+    <style>
+        @keyframes gradient {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            visibility: hidden; /* Changed from opacity to visibility */
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+        .container.visible {
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #e1306c;
+            margin: 0 auto 20px;
+            display: block;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 1s ease;
+        }
+        .profile-pic.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+        h1.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .stat {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+        .stat.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .bio {
+            text-align: center;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+        .bio.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+        .button.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .telegram {
+            background-color: #0088cc;
+        }
+        .gmail {
+            background-color: #D44638;
+        }
+        .instagram {
+            background-color: #e1306c;
+        }
+        .message {
+            background-color: #0095f6;
+        }
+        #typing-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+        #typing-effect.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="typing-effect"></div>
+    <div class="container">
+        <a href="https://www.instagram.com/stories/rathod_akash_0079/"><img src="https://cdn.inflact.com/media/459227254_541664411766101_6081830725861613008_n.jpg?url=https%3A%2F%2Fscontent.cdninstagram.com%2Fv%2Ft51.2885-19%2F459227254_541664411766101_6081830725861613008_n.jpg%3Fstp%3Ddst-jpg_e0_s150x150%26_nc_ht%3Dscontent-arn2-1.cdninstagram.com%26_nc_cat%3D105%26_nc_ohc%3DRPpNpV4eqdkQ7kNvgF2dada%26_nc_gid%3D5d542379da074b64a4af7b118071dbc8%26edm%3DAOQ1c0wBAAAA%26ccb%3D7-5%26oh%3D00_AYBA9z1PAUW2fbzAueRXnAflhVkwze0nL7jr894FA78GvA%26oe%3D672ACDF8%26_nc_sid%3D8b3546&time=1730476800&key=02090d0377c5f4010cdf690fcad15c09" alt="Profile Picture" class="profile-pic"></a>
+        <h1>rathod_akash_0079</h1>
+        <div class="stats">
+            <div class="stat">
+                <strong id="posts">1</strong>
+                <div>posts</div>
+            </div>
+            <div class="stat">
+                <strong id="followers">255</strong>
+                <div>followers</div>
+            </div>
+            <div class="stat">
+                <strong id="following">210</strong>
+                <div>following</div>
+            </div>
+        </div>
+        <div class="bio" id="bio">
+            RATHOD AKASH R. <br>
+            Web Designer <br>
+            ➜ㅤ💻 Digital artist 🎨 <br>
+            ➜ㅤ📱 Mobile App Dev <br>
+            ➜ㅤ🌐 Web Dev <br>
+            ➜ㅤ🎶 Music lover 🎵 <br>
+            ➜ㅤ⚗️🧪 Science Student 🌡️ 🔬 <br>
+        </div>
+        <div class="buttons">
+            <a href="https://t.me/mrakok" class="button telegram" target="_blank">
+                <img src="https://telegram.org/img/t_logo.svg" alt="Telegram">
+                Telegram
+            </a>
+            <a href="mailto:rathodakashr79@gmail.com" class="button gmail">
+                <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_32dp.png" alt="Gmail">
+                Gmail
+            </a>
+            <a href="https://www.instagram.com/rathod_akash_0079/" class="button instagram" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/132px-Instagram_logo_2016.svg.png" alt="Instagram">
+                Instagram
+            </a>
+            <a href="https://www.instagram.com/direct/t/17844932210954852/" class="button message" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/2099/2099122.png" alt="Message">
+                Message
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const typingEffect = document.getElementById('typing-effect');
+        const container = document.querySelector('.container');
+        const profilePic = document.querySelector('.profile-pic');
+        const h1 = document.querySelector('h1');
+        const stats = document.querySelectorAll('.stat');
+        const bio = document.querySelector('.bio');
+        const buttons = document.querySelectorAll('.button');
+
+        const codeLines = [
+            'Loading profile data...',
+            'Connecting to Instagram API...',
+            'Fetching user information...',
+            'Processing data...',
+            'Initializing interface...',
+            'Setting up components...',
+            'Applying styles...',
+            'Finalizing...'
+        ];
+
+        async function typeCode(index = 0) {
+            if (index < codeLines.length) {
+                typingEffect.innerHTML += `> ${codeLines[index]}<br>`;
+                typingEffect.scrollTop = typingEffect.scrollHeight;
+                await new Promise(resolve => setTimeout(resolve, 300));
+                await typeCode(index + 1);
+            } else {
+                await new Promise(resolve => setTimeout(resolve, 500));
+                typingEffect.classList.add('hidden');
+                revealContent();
+            }
+        }
+
+        function revealContent() {
+            container.classList.add('visible');
+            
+            setTimeout(() => {
+                profilePic.classList.add('visible');
+            }, 500);
+
+            setTimeout(() => {
+                h1.classList.add('visible');
+            }, 1000);
+
+            stats.forEach((stat, index) => {
+                setTimeout(() => {
+                    stat.classList.add('visible');
+                }, 1500 + index * 200);
+            });
+
+            setTimeout(() => {
+                bio.classList.add('visible');
+            }, 2500);
+
+            buttons.forEach((button, index) => {
+                setTimeout(() => {
+                    button.classList.add('visible');
+                }, 3000 + index * 200);
+            });
+        }
+
+        window.addEventListener('load', typeCode);
+    </script>
+</body>
+</html>
